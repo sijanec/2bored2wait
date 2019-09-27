@@ -61,7 +61,7 @@ function startQueuing() {
 			// we need to know if we finished the queue otherwise we crash when we're done, because the queue info is no longer in packets the server sends us.
 			let chatMessage = JSON.parse(data.message);
 			if (chatMessage.text && chatMessage.text === "Connecting to the server...") {
-                if (webserver.restartQueue && proxyClient == null) { //if we have no client connected and we should restart
+                if (webserver.restartQueue) { //we should restart - deleted if proxyClient == null
                     stop();
                     setTimeout(startQueuing, 100); // reconnect after 100 ms
                 } else {
@@ -132,7 +132,7 @@ function startQueuing() {
 		proxyClient = newProxyClient;
 	});
 }
-
+u
 //function to filter out some packets that would make us disconnect otherwise.
 //this is where you could filter out packets with sign data to prevent chunk bans.
 function filterPacketAndSend(data, meta, dest) {
