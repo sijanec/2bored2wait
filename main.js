@@ -150,7 +150,7 @@ function startQueuing() {
 				let chatMessage = data.message;
 				if (chatMessage.startsWith("/2b2w")) {
 					if (chatMessage.startsWith("/2b2w chunks")) {
-						if(chunk.sizeof >= 1) {
+						if(chunk.length >= 1) {
 							chunk.forEach(function(element) {  
 								filterPacketAndSend(element[0], element[1], newProxyClient);
 								filterPacketAndSend({ message: "{\"text\":\"2b2w: okily-dokily\"}", position: 1 }, { name: "chat" }, proxyClient);
